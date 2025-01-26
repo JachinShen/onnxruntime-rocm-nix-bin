@@ -2,16 +2,16 @@
   "nodes": {
     "nixpkgs": {
       "locked": {
-        "lastModified": 1734687223,
-        "narHash": "sha256-A7w/HnYmzTnnVO8NZWx7sul1R8ZXWEIuRl550RIcqmg=",
+        "lastModified": 1737806094,
+        "narHash": "sha256-GIlp2BqAn1c7xd2rfTfm6vN1yEf4jcurtRNbsU2doKY=",
         "owner": "jachinshen",
         "repo": "nixpkgs",
-        "rev": "81cdb4e8f60345e428492caca4cd85725e3001ee",
+        "rev": "ba3f336e4536760458da80421696f889c62dfccb",
         "type": "github"
       },
       "original": {
         "owner": "jachinshen",
-        "ref": "rocm-6.2.2",
+        "ref": "rocm-6.3.1",
         "repo": "nixpkgs",
         "type": "github"
       }

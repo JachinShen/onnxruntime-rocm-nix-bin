@@ -32,7 +32,7 @@ print('Loaded {} reference outputs successfully.'.format(test_data_num))
 
 
 # Run the model on the backend
-session = onnxruntime.InferenceSession('resnet50v2/resnet50v2.onnx', None)
+session = onnxruntime.InferenceSession('resnet50v2/resnet50v2.onnx', providers=['ROCMExecutionProvider'])
 
 # get the name of the first input of the model
 input_name = session.get_inputs()[0].name  

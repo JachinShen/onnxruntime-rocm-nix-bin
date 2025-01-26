@@ -1,7 +1,7 @@
 {
   description = "A Nix-flake-based Python development environment";
 
-  inputs.nixpkgs.url = "github:jachinshen/nixpkgs/rocm-6.2.2";
+  inputs.nixpkgs.url = "github:jachinshen/nixpkgs/rocm-6.3.1";
   nixConfig.substituters = [
     "https://mirror.sjtu.edu.cn/nix-channels/store"
     "https://mirrors.ustc.edu.cn/nix-channels/store"
@@ -29,14 +29,15 @@
           packages = with pkgs.python310Packages; [
             python
             venvShellHook
-            numpy
+            numpy_1
           ] ++ (with pkgs; [
             patchelf
             wget
+            gdb
           ]);
 
           env = {
-            PATCH_PATH="${pkgs.rocmPackages.clr}/lib:${pkgs.rocmPackages.hipfft}/lib:${pkgs.rocmPackages.roctracer}/lib:${pkgs.rocmPackages.rocblas}/lib:${pkgs.rocmPackages.miopen}/lib:${pkgs.rocmPackages.migraphx}/lib:${pkgs.protobuf}/lib:${pkgs.sqlite.out}/lib:${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.rocmPackages.llvm.runtimes}/lib:${pkgs.zlib}/lib";
+            PATCH_PATH="${pkgs.rocmPackages.clr}/lib:${pkgs.rocmPackages.hipfft}/lib:${pkgs.rocmPackages.roctracer}/lib:${pkgs.rocmPackages.rocblas}/lib:${pkgs.rocmPackages.miopen}/lib:${pkgs.rocmPackages.migraphx}/lib:${pkgs.protobuf}/lib:${pkgs.sqlite.out}/lib:${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.rocmPackages.llvm.runtimes}/lib:${pkgs.zlib}/lib:${pkgs.rocmPackages.rocm-smi}/lib:./.venv/lib/python3.10/site-packages/onnxruntime/capi/";
           };
         };
       });
